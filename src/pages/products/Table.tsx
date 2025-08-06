@@ -83,7 +83,9 @@ export default function Table() {
                       (category) => category.id === product.categoryId
                     )?.name || "-"}
                   </TableCell>
-                  <TableCell>{product.description}</TableCell>
+                  <TableCell>
+                    {product.description === "" ? "-" : product.description}
+                  </TableCell>
                   <TableCell align="right">
                     <Button
                       variant="ghost"

@@ -61,9 +61,7 @@ export default function Form({ edit }: Props) {
     categoryId: z.string().min(1, {
       message: t("app.form.required"),
     }),
-    description: z.string().min(1, {
-      message: t("app.form.required"),
-    }),
+    description: z.string(),
   });
 
   const params = useParams();
