@@ -1,0 +1,68 @@
+{
+  "app": {
+    "btn": {
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Deletar",
+      "register": "Cadastrar",
+      "login": "Entrar",
+      "ok": "OK"
+    },
+    "common": {
+      "loading": "Carregando ...",
+      "welcome": "Bem vindo",
+      "name": "Nome",
+      "description": "Descrição",
+      "noData": "Nenhum resultado.",
+      "noResults": "Nenhum resultado.",
+      "portuguese": "Português",
+      "english": "Inglês",
+      "to": "até",
+      "clearFilters": "Limpar filtros",
+      "page": "Página",
+      "pageSize": "Itens por página"
+    },
+    "form": {
+      "required": "Obrigatório",
+      "greaterThanZero": "Deve ser um número positivo",
+      "invalidPrice": "Deve ser um número positivo",
+      "placeholder": {
+        "nameProduct": "Nome do produto",
+        "descriptionProduct": "Descrição do produto",
+        "priceProduct": "Preço do produto",
+        "categoryProduct": "Categoria do produto",
+        "selectCategory": "Selecione uma categoria"
+      }
+    },
+    "error": {
+      "title": "Um erro ocorreu",
+      "unauthorized.expiredToken": "Token expirado",
+      "semantic.missingException": "Campo obrigatório",
+      "field": {
+        "id": "Id",
+        "name": "Nome",
+        "description": "Descrição",
+        "token": "Token"
+      },
+      "common": "Erro desconhecido",
+      "notFound": "Nao encontrado"
+    },
+    "product": {
+      "products": "Produtos",
+      "newProduct": "Novo produto",
+      "editProduct": "Editar produto",
+      "registerProduct": "Cadastrar produto",
+      "product": "Produto",
+      "name": "Nome",
+      "description": "Descrição",
+      "price": "Preço",
+      "quantity": "Quantidade",
+      "total": "Total",
+      "category": "Categoria",
+      "categories": "Categorias",
+      "deleteProduct": "Deletar produto",
+      "deleteProductDescription": "Tem certeza que deseja deletar <PRODUCT>? Esta ação não poderá ser desfeita."
+    }
+  }
+}
