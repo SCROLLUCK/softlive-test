@@ -1,0 +1,43 @@
+{
+  "app": {
+    "btn": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "register": "Register",
+      "login": "Login",
+      "ok": "OK"
+    },
+    "common": {
+      "loading": "Loading...",
+      "name": "Name",
+      "description": "Description",
+      "noData": "No results found.",
+      "portuguese": "Portuguese",
+      "english": "English",
+      "to": "to",
+      "clearFilters": "Clear filters",
+      "page": "Page",
+      "pageSize": "Items per page"
+    },
+    "form": {
+      "required": "Required",
+      "placeholder": {
+        "nameProduct": "Product name"
+      }
+    },
+    "error": {
+      "title": "An error occurred",
+      "unauthorized.expiredToken": "Expired token",
+      "field": {
+        "id": "ID",
+        "name": "Name",
+        "description": "Description",
+        "token": "Token"
+      },
+      "common": "Unknown error",
+      "notFound": "Not found"
+    }
+  }
+}

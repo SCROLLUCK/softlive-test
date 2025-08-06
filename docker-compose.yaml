@@ -1,0 +1,27 @@
+services:
+  softlive-test:
+    # A tag da imagem agora é definida pela variável VERSION do arquivo .env
+    image: ghcr.io/SCROLLUCK/softlive-test:1.0.0
+    container_name: softlive-test
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    ports:
+      - "80:80"
+    # As variáveis de ambiente são carregadas diretamente do arquivo .env
+    environment:
+      - HOST_IP=192.168.1.109
+    restart: always
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.docker/config.json:/config.json:ro
+    environment:
+      - WATCHTOWER_DOCKER_CONFIG=/config.json
+      - WATCHTOWER_POLL_INTERVAL=60
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_LABEL_ENABLE=true
