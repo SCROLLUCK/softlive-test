@@ -9,7 +9,7 @@ export function handleCoreStatus(
   providerName: string
 ) {
   let formattedErrors = null;
-  const commonFields = ["id", "token", "name", "description", "equipmentId"];
+  const commonFields = ["id", "token", "name", "description"];
   if (error) {
     if (error.response?.data && error.response.data.errors) {
       // handle axios errors

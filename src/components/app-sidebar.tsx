@@ -29,7 +29,7 @@ export function AppSidebar() {
     {
       title: t("app.product.categories"),
       url: "/categories",
-      activeRoutes: ["/", "/categories"],
+      activeRoutes: ["/categories"],
       icon: Puzzle,
     },
   ];

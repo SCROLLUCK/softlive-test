@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import CustomPagination from "@/components/custom-pagination";
 import { DeleteDialog } from "@/components/delete-dialog";
 import SkeletonTableRow from "@/components/skeleton-table-row";
+import { useCategories } from "@/hooks/useCategories";
 
 export default function Table() {
   const navigate = useNavigate();
@@ -28,12 +29,13 @@ export default function Table() {
     setCurrentProduct,
     _delete,
   } = useProducts();
+  const { categories, load: loadCategories } = useCategories();
   const { t } = useTranslation();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   useEffect(() => {
-    loadProducts();
-  }, [loadProducts]);
+    Promise.all([loadProducts(), loadCategories()]);
+  }, [loadCategories, loadProducts]);
 
   return (
     <Card>
@@ -77,7 +79,9 @@ export default function Table() {
                   <TableCell>{product.name}</TableCell>
                   <TableCell>$ {product.price}</TableCell>
                   <TableCell>
-                    {product.category ? product.category[0].name : "-"}
+                    {categories.data.find(
+                      (category) => category.id === product.categoryId
+                    )?.name || "-"}
                   </TableCell>
                   <TableCell>{product.description}</TableCell>
                   <TableCell align="right">

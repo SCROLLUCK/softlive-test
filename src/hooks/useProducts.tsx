@@ -143,7 +143,9 @@ const ProductProvider: React.FC<ProductProviderProps> = ({ children }) => {
     async (product: Product) => {
       try {
         handleStatus("delete", true, null);
-        await api.delete(`/products/${product.id}`);
+        await api.delete(
+          `/categories/${product.categoryId}/products/${product.id}`
+        );
         toast.success("Produto excluído com sucesso", {
           position: "top-right",
           duration: 5000,

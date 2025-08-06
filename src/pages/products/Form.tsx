@@ -25,7 +25,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useEffect, useLayoutEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Loader2 } from "lucide-react";
 import { Combobox } from "@/components/combo-box";
 import { useProducts } from "@/hooks/useProducts";
@@ -96,7 +96,7 @@ export default function Form({ edit }: Props) {
     }
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     loadCategories();
   }, [loadCategories]);
 
@@ -112,9 +112,7 @@ export default function Form({ edit }: Props) {
         name: currentProduct.name,
         price: currentProduct.price,
         description: currentProduct.description,
-        categoryId: currentProduct.category
-          ? (currentProduct.category[0].id as any)
-          : null,
+        categoryId: currentProduct.categoryId as any,
       });
     }
   }, [categories, currentProduct, edit, form]);
