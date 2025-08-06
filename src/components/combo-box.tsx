@@ -87,10 +87,10 @@ export function Combobox({
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
+                  key={option.label}
+                  value={option.label}
+                  onSelect={() => {
+                    setValue(option.value);
                     setOpen(false);
                   }}
                 >

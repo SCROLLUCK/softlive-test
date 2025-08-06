@@ -176,7 +176,7 @@ export default function Form({ edit }: Props) {
                   <Combobox
                     options={categories.data.map((category) => ({
                       value: category.id,
-                      label: `${category.name}`,
+                      label: category.name,
                     }))}
                     loading={categoryStatus.load.loading}
                     width="w-full"
