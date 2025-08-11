@@ -43,8 +43,8 @@ export default function CustomPagination({ total }: Props) {
             width="w-[100px]"
             innerWidth="w-[150px]"
             options={pages.map((value) => ({
-              value: String(value + 1),
-              label: String(value + 1),
+              value: String(value),
+              label: String(value),
             }))}
             placeholder={t("app.common.page")}
             value={String(currentPage)}
