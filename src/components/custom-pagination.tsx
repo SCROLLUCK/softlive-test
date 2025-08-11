@@ -24,7 +24,9 @@ interface Props {
 export default function CustomPagination({ total }: Props) {
   const { t } = useTranslation();
   const { setCurrentPage, setPageSize, pageSize, currentPage } = useTable();
-  const pages = [...Array(Math.ceil(total / pageSize)).keys()];
+  const pages = [...Array(Math.ceil(total / pageSize)).keys()].map(
+    (value) => value + 1
+  );
   return (
     <div className="flex items-center justify-end gap-2">
       <Pagination className="flex justify-end gap-2">
