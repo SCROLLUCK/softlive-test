@@ -56,7 +56,9 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={`justify-between text-left font-normal`}
+          className={`justify-between text-left font-normal ${width} ${
+            value ? "text-foreground" : "text-muted-foreground"
+          }`}
           disabled={disabled}
         >
           {value
