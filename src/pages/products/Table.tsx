@@ -64,7 +64,7 @@ export default function Table() {
         </div>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[calc(100vh-250px)] overflow-auto">
+        <ScrollArea className="h-auto max-h-[calc(100vh-250px)] overflow-auto">
           <TableUI>
             <TableHeader className="sticky w-full top-0 bg-white">
               <TableRow className="text-lime-100">
