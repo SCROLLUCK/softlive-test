@@ -76,7 +76,15 @@ export function Combobox({
           innerWidth ?? "w-[var(--radix-popover-trigger-width)]"
         } p-0`}
       >
-        <Command>
+        <Command
+          filter={(value, search, keywords = []) => {
+            const extendValue = value + " " + keywords.join(" ");
+            if (extendValue.toLowerCase().includes(search.toLowerCase())) {
+              return 1;
+            }
+            return 0;
+          }}
+        >
           <CommandInput
             placeholder={loading ? t("app.common.loading") : placeholder}
             className="h-9"
@@ -87,7 +95,7 @@ export function Combobox({
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem
-                  key={option.label}
+                  key={option.value}
                   value={option.label}
                   onSelect={() => {
                     setValue(option.value);
