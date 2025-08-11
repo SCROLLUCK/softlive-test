@@ -47,19 +47,26 @@ Interface gráfica de CRUD (Create, Read, Update, Delete) de produtos, desenvolv
    cd softlive-test
    ```
 
-2. **Instale as dependências:**
+2. **Crie o arquivo de ambiente:**
+   Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+   ```
+   VITE_API_URL=https://68929015c49d24bce867d02c.mockapi.io/softlive-test
+   ```
+
+3. **Instale as dependências:**
 
    ```bash
    yarn
    ```
 
-3. **Inicie o servidor de desenvolvimento:**
+4. **Inicie o servidor de desenvolvimento:**
 
    ```bash
    yarn start
    ```
 
-4. **Acesse a aplicação:**
+5. **Acesse a aplicação:**
    Abra o navegador e visite [http://localhost:5173](http://localhost:5173).
 
 ## Scripts Disponíveis
@@ -74,5 +81,6 @@ Interface gráfica de CRUD (Create, Read, Update, Delete) de produtos, desenvolv
 - A aplicação utiliza **Shadcn UI** para componentes estilizados e responsivos.
 - A API mockada ([MockAPI.io](https://mockapi.io)) simula um backend real, armazenando os produtos cadastrados.
 - O deploy foi realizado na **Vercel** para acesso público.
+- É necessário criar o arquivo `.env` com a variável `VITE_API_URL` para o correto funcionamento local.
 
 Para dúvidas ou sugestões, entre em contato pelo email: **lucasluck77.ll@gmail.com**.
