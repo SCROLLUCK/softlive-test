@@ -145,7 +145,7 @@ export default function Form({ edit }: Props) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-6"
         >
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 grid-cols-1 gap-6">
             <FormField
               // @ts-ignore
               control={form.control}
