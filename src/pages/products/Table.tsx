@@ -18,6 +18,7 @@ import CustomPagination from "@/components/custom-pagination";
 import { DeleteDialog } from "@/components/delete-dialog";
 import SkeletonTableRow from "@/components/skeleton-table-row";
 import { useCategories } from "@/hooks/useCategories";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 export default function Table() {
   const navigate = useNavigate();
@@ -63,68 +64,70 @@ export default function Table() {
         </div>
       </CardHeader>
       <CardContent>
-        <TableUI>
-          <TableHeader>
-            <TableRow className="text-lime-100">
-              <TableHead>{t("app.common.name")}</TableHead>
-              <TableHead>{t("app.product.price")}</TableHead>
-              <TableHead>{t("app.product.category")}</TableHead>
-              <TableHead>{t("app.common.description")}</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {!status.load.loading &&
-              products.data.map((product) => (
-                <TableRow key={product.id}>
-                  <TableCell>{product.name}</TableCell>
-                  <TableCell>$ {product.price}</TableCell>
-                  <TableCell>
-                    {categories.data.find(
-                      (category) => category.id === product.categoryId
-                    )?.name || "-"}
-                  </TableCell>
-                  <TableCell>
-                    {product.description === "" ? "-" : product.description}
-                  </TableCell>
-                  <TableCell align="right">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="size-8 hover:bg-gray-200 hover:cursor-pointer"
-                      onClick={() => navigate(`/products/${product.id}`)}
-                    >
-                      <PencilIcon />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="size-8 hover:bg-gray-200 hover:cursor-pointer"
-                      onClick={() => {
-                        setCurrentProduct(product);
-                        setDeleteDialogOpen(true);
-                      }}
-                    >
-                      <Trash2 color="red" />
-                    </Button>
+        <ScrollArea className="h-[calc(100vh-250px)] overflow-auto">
+          <TableUI>
+            <TableHeader className="sticky w-full top-0 bg-white">
+              <TableRow className="text-lime-100">
+                <TableHead>{t("app.common.name")}</TableHead>
+                <TableHead>{t("app.product.price")}</TableHead>
+                <TableHead>{t("app.product.category")}</TableHead>
+                <TableHead>{t("app.common.description")}</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {!status.load.loading &&
+                products.data.map((product) => (
+                  <TableRow key={product.id}>
+                    <TableCell>{product.name}</TableCell>
+                    <TableCell>$ {product.price}</TableCell>
+                    <TableCell>
+                      {categories.data.find(
+                        (category) => category.id === product.categoryId
+                      )?.name || "-"}
+                    </TableCell>
+                    <TableCell>
+                      {product.description === "" ? "-" : product.description}
+                    </TableCell>
+                    <TableCell align="right">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="size-8 hover:bg-gray-200 hover:cursor-pointer"
+                        onClick={() => navigate(`/products/${product.id}`)}
+                      >
+                        <PencilIcon />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="size-8 hover:bg-gray-200 hover:cursor-pointer"
+                        onClick={() => {
+                          setCurrentProduct(product);
+                          setDeleteDialogOpen(true);
+                        }}
+                      >
+                        <Trash2 color="red" />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              {!status.load.loading && products.data.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={6} className="h-24 text-center">
+                    {t("app.common.noResults")}
                   </TableCell>
                 </TableRow>
-              ))}
-            {!status.load.loading && products.data.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">
-                  {t("app.common.noResults")}
-                </TableCell>
-              </TableRow>
-            )}
-            {status.load.loading && (
-              <>
-                <SkeletonTableRow columns={4} />
-                <SkeletonTableRow columns={4} />
-                <SkeletonTableRow columns={4} />
-              </>
-            )}
-          </TableBody>
-        </TableUI>
+              )}
+              {status.load.loading && (
+                <>
+                  <SkeletonTableRow columns={4} />
+                  <SkeletonTableRow columns={4} />
+                  <SkeletonTableRow columns={4} />
+                </>
+              )}
+            </TableBody>
+          </TableUI>
+        </ScrollArea>
         <CustomPagination total={products.total} />
       </CardContent>
     </Card>
