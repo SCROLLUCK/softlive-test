@@ -72,6 +72,7 @@ export default function Table() {
                 <TableHead>{t("app.product.price")}</TableHead>
                 <TableHead>{t("app.product.category")}</TableHead>
                 <TableHead>{t("app.common.description")}</TableHead>
+                <TableHead></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
